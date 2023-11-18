@@ -40,6 +40,9 @@ export const AdminPage = () => {
         {orders.map((item) => (
           <ul key={item.id} className="list-item">
             <h3>Poptávka č.{item.id}</h3>
+            <li>Pokoj: {item.name}</li>
+            <li>Od: {item.from}</li>
+            <li>Do: {item.to}</li>
             <li>Počet nocí:{item.nights}</li>
             <li>Počet osob: {item.persons}</li>
             <li>Domácí mazlíček: {item.pets}</li>

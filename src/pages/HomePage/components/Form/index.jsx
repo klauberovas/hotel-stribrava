@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './style.css';
 import dayjs from 'dayjs';
 
-export const Form = ({ price }) => {
+export const Form = ({ price, name }) => {
   const now = dayjs().format('YYYY-MM-DD');
   console.log(now);
   let totalPrice = 0;
@@ -49,6 +49,9 @@ export const Form = ({ price }) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        name: name,
+        from: fromDate,
+        to: toDate,
         nights: nights,
         persons: person,
         menu: menu,

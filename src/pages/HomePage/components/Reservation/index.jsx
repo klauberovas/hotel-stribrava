@@ -24,7 +24,7 @@ export const Reservation = ({ roomId }) => {
         </h2>
         <div className="columns-2">
           <DetailRoom room={detailRoom} />
-          <Form price={detailRoom.price} />
+          <Form price={detailRoom.price} name={detailRoom.name} />
         </div>
       </div>
     </section>

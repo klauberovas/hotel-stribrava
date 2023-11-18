@@ -10,5 +10,60 @@
     "email": "khujhfd@jkkj",
     "phone": "fsdfsd",
     "phase": "confirmed"
+  },
+  {
+    "id": 1,
+    "nights": 1,
+    "persons": "2",
+    "menu": "full",
+    "pets": "ano",
+    "children": "ano",
+    "barier": "ano",
+    "email": "sarkaa.novakova@seznam.cz",
+    "phone": "4654656",
+    "phase": "rejected"
+  },
+  {
+    "id": 2,
+    "from": "2023-11-19",
+    "to": "2023-11-28",
+    "nights": 9,
+    "persons": "3",
+    "menu": "half",
+    "pets": "ano",
+    "children": "ano",
+    "barier": "ano",
+    "email": "sarkaa.novakova@seznam.cz",
+    "phone": "4646",
+    "phase": "rejected"
+  },
+  {
+    "id": 3,
+    "from": "2023-11-19",
+    "to": "2023-11-20",
+    "nights": 1,
+    "persons": "4",
+    "menu": "half",
+    "pets": "ano",
+    "children": "ano",
+    "barier": "ano",
+    "email": "sarkaa.novakova@seznam.cz",
+    "phone": "+646",
+    "phase": "rejected"
+  },
+  {
+    "id": 4,
+    "name": "Luxus",
+    "from": "2023-11-19",
+    "to": "2023-11-28",
+    "nights": 9,
+    "persons": "4",
+    "menu": "full",
+    "pets": "ano",
+    "children": "ano",
+    "barier": "ano",
+    "email": "sarkaa.novakova@seznam.cz",
+    "phone": "456546",
+    "phase": "new"
   }
 ]
