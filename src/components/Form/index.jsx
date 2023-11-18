@@ -42,8 +42,29 @@ export const Form = ({ price }) => {
     }
   }
 
+  const sendData = async () => {
+    fetch('http://localhost:4000/api/poptavky', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        nights: nights,
+        persons: person,
+        menu: menu,
+        pets: pet ? 'ano' : 'ne',
+        children: children ? 'ano' : 'ne',
+        barier: barier ? 'ano' : 'ne',
+        email: email,
+        phone: phone,
+        phase: 'new',
+      }),
+    });
+    alert('Děkujeme za odeslání formuláře.');
+  };
+
   return (
-    <form onSubmit={() => alert('Děkujeme za odeslání formuláře.')}>
+    <form onSubmit={() => sendData()}>
       <div className="form-fields">
         <label htmlFor="date1" className="field-label">
           Od:
