@@ -1,4 +1,13 @@
 .list-item {
-  border: 1px solid black;
+  border: 1px solid #000000;
   background-color: #f9a7a7;
+}
+
+.button--confirm {
+  background-color: white;
+  margin-right: 1rem;
+}
+
+.button--confirm:hover {
+  background-color: #020a02;
 }

@@ -30,6 +30,8 @@ export const AdminPage = () => {
             <li>Bezbariérový přístup: {item.barier}</li>
             <li>E-mail: {item.email}</li>
             <li>Telefon: {item.phone}</li>
+            <button className="button--confirm">❌</button>
+            <button className="button--confirm">✅</button>
           </ul>
         ))}
       </div>
