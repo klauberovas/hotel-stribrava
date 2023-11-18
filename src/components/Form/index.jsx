@@ -3,10 +3,11 @@ import './style.css';
 import dayjs from 'dayjs';
 
 export const Form = ({ price }) => {
-  const now = dayjs().format('DD.MM.YYYY');
+  const now = dayjs().format('YYYY-MM-DD');
 
   const [resultPrice, setResultPrice] = useState(price);
   const [fromDate, setFromDate] = useState(now);
+  const [toDate, setToDate] = useState(now);
   console.log(resultPrice);
 
   return (
@@ -25,7 +26,13 @@ export const Form = ({ price }) => {
         <label htmlFor="field2" className="field-label">
           Do:
         </label>
-        <input id="field2" className="field-input" type="date" />
+        <input
+          value={toDate}
+          onChange={(e) => setToDate(e.target.value)}
+          id="field2"
+          className="field-input"
+          type="date"
+        />
 
         <label htmlFor="field3" className="field-label">
           Počet osob:
