@@ -6,10 +6,17 @@ export const Form = ({ price }) => {
   const now = dayjs().format('YYYY-MM-DD');
 
   const [resultPrice, setResultPrice] = useState(price);
-  const [formData, setFormData] = useState([]);
+  const [formData, setFormData] = useState({});
 
   const handleChange = (e) => {
-    setFormData([`${formData}, ${e.target.value}`]);
+    const { id, type, value, checked } = e.target;
+    const newValue = type === 'checkbox' ? checked : value;
+
+    setFormData((predata) => ({
+      ...predata,
+      [id]: newValue,
+    }));
+    console.log(formData);
   };
   console.log(formData);
   // useEffect(() => {
@@ -18,7 +25,7 @@ export const Form = ({ price }) => {
   // }, [fromDate, toDate]);
 
   return (
-    <form onSubmit={() => alert('Děkujeme za odeslání formuláře')}>
+    <form onSubmit={() => alert('Děkujeme za odeslání formuláře.')}>
       <div className="form-fields">
         <label htmlFor="field1" className="field-label">
           Od:
@@ -46,7 +53,7 @@ export const Form = ({ price }) => {
           onChange={handleChange}
           id="field3"
           className="field-input"
-          type="number"
+          type="text"
         />
 
         <label htmlFor="select" className="field-label">
