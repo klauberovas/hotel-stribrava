@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './style.css';
 import dayjs from 'dayjs';
 
@@ -8,7 +8,6 @@ export const Form = ({ price }) => {
   const [resultPrice, setResultPrice] = useState(price);
   const [fromDate, setFromDate] = useState(now);
   const [toDate, setToDate] = useState(now);
-  console.log(resultPrice);
 
   return (
     <form>
