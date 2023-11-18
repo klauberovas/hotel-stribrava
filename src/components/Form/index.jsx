@@ -1,30 +1,31 @@
 import './style.css';
+
 export const Form = () => {
   return (
     <form>
       <div className="form-fields">
         <label htmlFor="field1" className="field-label">
-          Field 1:
+          Datum:
         </label>
-        <input id="field1" className="field-input" type="text" />
+        <input id="field1" className="field-input" type="date" />
 
         <label htmlFor="field2" className="field-label">
-          Field 2:
+          Počet osob:
         </label>
         <input id="field2" className="field-input" type="text" />
 
         <label htmlFor="select" className="field-label">
-          Select:
+          Stravování
         </label>
         <select id="select" className="field-input">
-          <option>Option 1</option>
-          <option>Option 2</option>
-          <option>Option 3</option>
-          <option>Option 4</option>
+          <option>Žádné</option>
+          <option>Snídaně</option>
+          <option>Polopenze</option>
+          <option>Plná penze</option>
         </select>
 
         <label htmlFor="check1" className="field-label">
-          Checkbox 1:
+          Domácí mazlíček:
         </label>
         <input id="check1" className="field-input" type="checkbox" />
       </div>
