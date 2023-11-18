@@ -1,4 +1,3 @@
-import './style.css';
 import mapa from './img/mapa.png';
 
 export const Footer = () => {
