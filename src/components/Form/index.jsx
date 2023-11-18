@@ -6,12 +6,19 @@ export const Form = ({ price }) => {
   const now = dayjs().format('YYYY-MM-DD');
 
   const [resultPrice, setResultPrice] = useState(price);
-  const [fromDate, setFromDate] = useState(now);
-  const [toDate, setToDate] = useState(now);
-  console.log(resultPrice);
+  const [formData, setFormData] = useState([]);
+
+  const handleChange = (e) => {
+    setFormData([`${formData}, ${e.target.value}`]);
+  };
+  console.log(formData);
+  // useEffect(() => {
+  //   const diffrent = dayjs(toDate).diff((fromDate), 'day');
+  //   console.log('rozdíl dní', diffrent);
+  // }, [fromDate, toDate]);
 
   return (
-    <form>
+    <form onSubmit={() => alert('Děkujeme za odeslání formuláře')}>
       <div className="form-fields">
         <label htmlFor="field1" className="field-label">
           Od:
