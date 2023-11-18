@@ -21,7 +21,7 @@
     "barier": false,
     "email": "hjkhj&@seznam.cz",
     "phone": "737 106 979",
-    "phase": "rejected"
+    "phase": "new"
   },
   {
     "id": 3,
@@ -33,6 +33,6 @@
     "barier": false,
     "email": "hjkhj&@seznam.cz",
     "phone": "737 106 979",
-    "phase": "confirmed"
+    "phase": "new"
   }
 ]
