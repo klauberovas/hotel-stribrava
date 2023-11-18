@@ -27,31 +27,31 @@ export const Form = ({ price }) => {
   return (
     <form onSubmit={() => alert('Děkujeme za odeslání formuláře.')}>
       <div className="form-fields">
-        <label htmlFor="field1" className="field-label">
+        <label htmlFor="date1" className="field-label">
           Od:
         </label>
         <input
           onChange={handleChange}
-          id="field1"
+          id="date1"
           className="field-input"
           type="date"
         />
-        <label htmlFor="field2" className="field-label">
+        <label htmlFor="date2" className="field-label">
           Do:
         </label>
         <input
           onChange={handleChange}
-          id="field2"
+          id="date2"
           className="field-input"
           type="date"
         />
 
-        <label htmlFor="field3" className="field-label">
+        <label htmlFor="person" className="field-label">
           Počet osob:
         </label>
         <input
           onChange={handleChange}
-          id="field3"
+          id="person"
           className="field-input"
           type="text"
         />
@@ -59,57 +59,57 @@ export const Form = ({ price }) => {
         <label htmlFor="select" className="field-label">
           Stravování
         </label>
-        <select onChange={handleChange} id="select" className="field-input">
+        <select onChange={handleChange} id="food" className="field-input">
           <option>Žádné</option>
           <option>Snídaně</option>
           <option>Polopenze</option>
           <option>Plná penze</option>
         </select>
 
-        <label htmlFor="check1" className="field-label">
+        <label htmlFor="pet" className="field-label">
           Domácí mazlíček:
         </label>
         <input
           onChange={handleChange}
-          id="check1"
+          id="pet"
           className="field-input"
           type="checkbox"
         />
-        <label htmlFor="check2" className="field-label">
+        <label htmlFor="children" className="field-label">
           Přistýlka pro dítě:
         </label>
         <input
           onChange={handleChange}
-          id="check2"
+          id="children"
           className="field-input"
           type="checkbox"
         />
-        <label htmlFor="check3" className="field-label">
+        <label htmlFor="barier-free" className="field-label">
           Bezbariérový přístup:
         </label>
         <input
           onChange={handleChange}
-          id="check3"
+          id="barier-free"
           className="field-input"
           type="checkbox"
         />
 
-        <label htmlFor="field4" className="field-label">
+        <label htmlFor="email" className="field-label">
           E-mail:
         </label>
         <input
           onChange={handleChange}
-          id="field4"
+          id="email"
           className="field-input"
           type="email"
         />
 
-        <label htmlFor="field5" className="field-label">
+        <label htmlFor="mobil" className="field-label">
           Mobil:
         </label>
         <input
           onChange={handleChange}
-          id="field5"
+          id="mobil"
           className="field-input"
           type="text"
         />
