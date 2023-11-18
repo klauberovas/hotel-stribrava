@@ -9,7 +9,7 @@ export const Form = ({ price }) => {
   const [formData, setFormData] = useState([]);
 
   const handleChange = (e) => {
-    setFormData([formData + e.target.value]);
+    setFormData([`${formData}, ${e.target.value}`]);
   };
   console.log(formData);
   // useEffect(() => {
@@ -18,7 +18,7 @@ export const Form = ({ price }) => {
   // }, [fromDate, toDate]);
 
   return (
-    <form>
+    <form onSubmit={() => alert('Děkujeme za odeslání formuláře')}>
       <div className="form-fields">
         <label htmlFor="field1" className="field-label">
           Od:
