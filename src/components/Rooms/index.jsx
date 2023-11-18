@@ -2,7 +2,7 @@ import { Room } from '../Room';
 import { useState, useEffect } from 'react';
 import './style.css';
 
-export const Rooms = () => {
+export const Rooms = ({ onSelect }) => {
   const [rooms, setRooms] = useState([]);
 
   useEffect(() => {
@@ -10,7 +10,6 @@ export const Rooms = () => {
       const response = await fetch('http://localhost:4000/api/rooms');
       const data = await response.json();
       setRooms(data.result);
-      console.log(data);
     };
 
     fetchRooms();
@@ -28,6 +27,8 @@ export const Rooms = () => {
               name={room.name}
               image={room.img}
               price={room.price}
+              roomId={room.id}
+              onSelect={onSelect}
             />
           ))}
         </div>
