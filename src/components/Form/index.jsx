@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './style.css';
 import dayjs from 'dayjs';
 
@@ -6,9 +6,16 @@ export const Form = ({ price }) => {
   const now = dayjs().format('YYYY-MM-DD');
 
   const [resultPrice, setResultPrice] = useState(price);
-  const [fromDate, setFromDate] = useState(now);
-  const [toDate, setToDate] = useState(now);
-  console.log(resultPrice);
+  const [formData, setFormData] = useState([]);
+
+  const handleChange = (e) => {
+    setFormData([formData + e.target.value]);
+  };
+  console.log(formData);
+  // useEffect(() => {
+  //   const diffrent = dayjs(toDate).diff((fromDate), 'day');
+  //   console.log('rozdíl dní', diffrent);
+  // }, [fromDate, toDate]);
 
   return (
     <form>
@@ -17,8 +24,7 @@ export const Form = ({ price }) => {
           Od:
         </label>
         <input
-          value={fromDate}
-          onChange={(e) => setFromDate(e.target.value)}
+          onChange={handleChange}
           id="field1"
           className="field-input"
           type="date"
@@ -27,8 +33,7 @@ export const Form = ({ price }) => {
           Do:
         </label>
         <input
-          value={toDate}
-          onChange={(e) => setToDate(e.target.value)}
+          onChange={handleChange}
           id="field2"
           className="field-input"
           type="date"
@@ -37,12 +42,17 @@ export const Form = ({ price }) => {
         <label htmlFor="field3" className="field-label">
           Počet osob:
         </label>
-        <input id="field3" className="field-input" type="text" />
+        <input
+          onChange={handleChange}
+          id="field3"
+          className="field-input"
+          type="number"
+        />
 
         <label htmlFor="select" className="field-label">
           Stravování
         </label>
-        <select id="select" className="field-input">
+        <select onChange={handleChange} id="select" className="field-input">
           <option>Žádné</option>
           <option>Snídaně</option>
           <option>Polopenze</option>
@@ -52,25 +62,50 @@ export const Form = ({ price }) => {
         <label htmlFor="check1" className="field-label">
           Domácí mazlíček:
         </label>
-        <input id="check1" className="field-input" type="checkbox" />
+        <input
+          onChange={handleChange}
+          id="check1"
+          className="field-input"
+          type="checkbox"
+        />
         <label htmlFor="check2" className="field-label">
           Přistýlka pro dítě:
         </label>
-        <input id="check2" className="field-input" type="checkbox" />
+        <input
+          onChange={handleChange}
+          id="check2"
+          className="field-input"
+          type="checkbox"
+        />
         <label htmlFor="check3" className="field-label">
           Bezbariérový přístup:
         </label>
-        <input id="check3" className="field-input" type="checkbox" />
+        <input
+          onChange={handleChange}
+          id="check3"
+          className="field-input"
+          type="checkbox"
+        />
 
         <label htmlFor="field4" className="field-label">
           E-mail:
         </label>
-        <input id="field4" className="field-input" type="email" />
+        <input
+          onChange={handleChange}
+          id="field4"
+          className="field-input"
+          type="email"
+        />
 
         <label htmlFor="field5" className="field-label">
           Mobil:
         </label>
-        <input id="field5" className="field-input" type="number" />
+        <input
+          onChange={handleChange}
+          id="field5"
+          className="field-input"
+          type="text"
+        />
       </div>
       <h3>Celková cena za pobyt: {price} kč</h3>
       <button className="wide">Odeslat poptávku</button>
