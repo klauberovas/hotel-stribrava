@@ -1,6 +1,6 @@
 export const DetailRoom = () => {
   return (
-    <div class="column">
+    <div className="column">
       <img src="img/image1.svg" />
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque
