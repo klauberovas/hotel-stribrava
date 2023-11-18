@@ -1,6 +1,10 @@
+import { useState } from 'react';
 import './style.css';
 
-export const Form = () => {
+export const Form = ({ price }) => {
+  const [resultPrice, setResultPrice] = useState(price);
+  console.log(resultPrice);
+
   return (
     <form>
       <div className="form-fields">
@@ -51,6 +55,7 @@ export const Form = () => {
         </label>
         <input id="field5" className="field-input" type="number" />
       </div>
+      <h3>Celková cena za pobyt: {price} kč</h3>
       <button className="wide">Odeslat poptávku</button>
     </form>
   );
