@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import './style.css';
+import dayjs from 'dayjs';
 
 export const Form = ({ price }) => {
+  const now = dayjs().format('DD.MM.YYYY');
+
   const [resultPrice, setResultPrice] = useState(price);
+  const [fromDate, setFromDate] = useState(now);
   console.log(resultPrice);
 
   return (
@@ -11,7 +15,13 @@ export const Form = ({ price }) => {
         <label htmlFor="field1" className="field-label">
           Od:
         </label>
-        <input id="field1" className="field-input" type="date" />
+        <input
+          value={fromDate}
+          onChange={(e) => setFromDate(e.target.value)}
+          id="field1"
+          className="field-input"
+          type="date"
+        />
         <label htmlFor="field2" className="field-label">
           Do:
         </label>
