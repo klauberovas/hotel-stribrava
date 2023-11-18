@@ -1,28 +1,46 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './style.css';
 import dayjs from 'dayjs';
 
 export const Form = ({ price }) => {
   const now = dayjs().format('YYYY-MM-DD');
+  console.log(now);
+  let totalPrice = 0;
 
-  const [resultPrice, setResultPrice] = useState(price);
-  const [formData, setFormData] = useState({});
+  const [fromDate, setFromDate] = useState(now);
+  const [toDate, setToDate] = useState(now);
+  const [person, setNights] = useState(0);
+  const [menu, setMenu] = useState('');
+  const [pet, setPet] = useState(false);
+  const [children, setChildren] = useState(false);
+  const [barier, setBarier] = useState(false);
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
 
-  const handleChange = (e) => {
-    const { id, type, value, checked } = e.target;
-    const newValue = type === 'checkbox' ? checked : value;
+  const nights = dayjs(toDate).diff(dayjs(fromDate), 'day');
 
-    setFormData((predata) => ({
-      ...predata,
-      [id]: newValue,
-    }));
-    console.log(formData);
-  };
-  console.log(formData);
-  // useEffect(() => {
-  //   const diffrent = dayjs(toDate).diff((fromDate), 'day');
-  //   console.log('rozdíl dní', diffrent);
-  // }, [fromDate, toDate]);
+  if (fromDate !== toDate) {
+    totalPrice += price * nights;
+
+    if (person !== 0) {
+      totalPrice = totalPrice * person;
+    }
+    if (menu === 'breakfast') {
+      totalPrice += person * nights * 150;
+    }
+    if (menu === 'half') {
+      totalPrice += person * nights * 300;
+    }
+    if (menu === 'full') {
+      totalPrice += person * nights * 500;
+    }
+    if (pet) {
+      totalPrice += nights * 100;
+    }
+    if (children) {
+      totalPrice += nights * 150;
+    }
+  }
 
   return (
     <form onSubmit={() => alert('Děkujeme za odeslání formuláře.')}>
@@ -31,7 +49,8 @@ export const Form = ({ price }) => {
           Od:
         </label>
         <input
-          onChange={handleChange}
+          value={fromDate}
+          onChange={(e) => setFromDate(e.target.value)}
           id="date1"
           className="field-input"
           type="date"
@@ -40,7 +59,8 @@ export const Form = ({ price }) => {
           Do:
         </label>
         <input
-          onChange={handleChange}
+          value={toDate}
+          onChange={(e) => setToDate(e.target.value)}
           id="date2"
           className="field-input"
           type="date"
@@ -50,27 +70,34 @@ export const Form = ({ price }) => {
           Počet osob:
         </label>
         <input
-          onChange={handleChange}
+          value={person}
+          onChange={(e) => setNights(e.target.value)}
           id="person"
           className="field-input"
-          type="text"
+          type="number"
         />
 
         <label htmlFor="select" className="field-label">
           Stravování
         </label>
-        <select onChange={handleChange} id="food" className="field-input">
-          <option>Žádné</option>
-          <option>Snídaně</option>
-          <option>Polopenze</option>
-          <option>Plná penze</option>
+        <select
+          value={menu}
+          onChange={(e) => setMenu(e.target.value)}
+          id="food"
+          className="field-input"
+        >
+          <option value="">Žádné</option>
+          <option value="breakfast">Snídaně</option>
+          <option value="half">Polopenze</option>
+          <option value="full">Plná penze</option>
         </select>
 
         <label htmlFor="pet" className="field-label">
           Domácí mazlíček:
         </label>
         <input
-          onChange={handleChange}
+          checked={pet}
+          onChange={() => setPet(!pet)}
           id="pet"
           className="field-input"
           type="checkbox"
@@ -79,7 +106,8 @@ export const Form = ({ price }) => {
           Přistýlka pro dítě:
         </label>
         <input
-          onChange={handleChange}
+          checked={children}
+          onChange={() => setChildren(!children)}
           id="children"
           className="field-input"
           type="checkbox"
@@ -88,7 +116,8 @@ export const Form = ({ price }) => {
           Bezbariérový přístup:
         </label>
         <input
-          onChange={handleChange}
+          checked={barier}
+          onChange={() => setBarier(!barier)}
           id="barier-free"
           className="field-input"
           type="checkbox"
@@ -98,7 +127,8 @@ export const Form = ({ price }) => {
           E-mail:
         </label>
         <input
-          onChange={handleChange}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           id="email"
           className="field-input"
           type="email"
@@ -108,13 +138,14 @@ export const Form = ({ price }) => {
           Mobil:
         </label>
         <input
-          onChange={handleChange}
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
           id="mobil"
           className="field-input"
           type="text"
         />
       </div>
-      <h3>Celková cena za pobyt: {price} kč</h3>
+      <h3>Celková cena za pobyt: {totalPrice} kč</h3>
       <button className="wide">Odeslat poptávku</button>
     </form>
   );
