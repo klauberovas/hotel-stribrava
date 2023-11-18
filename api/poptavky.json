@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "nights": 5,
+    "persons": 2,
+    "menu": "half",
+    "pets": false,
+    "children": true,
+    "barier": false,
+    "email": "hjkhj&@seznam.cz",
+    "phone": "737 106 979",
+    "phase": "new"
+  },
+  {
+    "id": 2,
+    "nights": 5,
+    "persons": 2,
+    "menu": "half",
+    "pets": false,
+    "children": true,
+    "barier": false,
+    "email": "hjkhj&@seznam.cz",
+    "phone": "737 106 979",
+    "phase": "rejected"
+  },
+  {
+    "id": 3,
+    "nights": 5,
+    "persons": 2,
+    "menu": "half",
+    "pets": false,
+    "children": true,
+    "barier": false,
+    "email": "hjkhj&@seznam.cz",
+    "phone": "737 106 979",
+    "phase": "confirmed"
+  }
+]
